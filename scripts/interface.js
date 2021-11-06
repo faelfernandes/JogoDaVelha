@@ -11,12 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function handleClick(event) {
-  let squares = event.target; // Elemento que recebeu o evento
-  let position = squares.id; // Pega o id do square
+  // Pega o id do square
+  let position = event.target.id; 
+
+  if (!position) {
+    return;
+  } 
 
   // Passa a posição para o handleMove do Game.js
   if (handleMove(position)) {
-    setTimeout(()=>{
+    setTimeout(() => {
       alert("O Jogo Acabou - O Vencedor foi o player " + playerTime)
     }, 10);
   }
