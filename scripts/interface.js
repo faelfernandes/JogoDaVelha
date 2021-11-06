@@ -21,11 +21,21 @@ function handleClick(event) {
     }, 10);
   }
   // Executa a função updateSquares
-  updateSquares();
+  updateSquare(position);
 }
 
-//Update de todos os squares
-function updateSquares() {
+// Update de somento um square
+function updateSquare(position) {
+  let square = document.getElementById(position.toString());
+  let symbol = board[position];
+  square.innerHTML = `<div class='${symbol}'></div>`;
+}
+
+// Não há necessidade de atualizar todos os squares
+// Função substituida pela função acima
+
+// Update de todos os squares
+/* function updateSquares() {
   // Pega novamente todos os squares
   let squares = document.querySelectorAll(".square");
 
@@ -42,4 +52,4 @@ function updateSquares() {
       square.innerHTML = `<div class='${symbol}'></div>`;
     }
   });
-}
+} */
