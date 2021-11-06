@@ -15,7 +15,11 @@ function handleClick(event) {
   let position = squares.id; // Pega o id do square
 
   // Passa a posição para o handleMove do Game.js
-  handleMove(position);
+  if (handleMove(position)) {
+    setTimeout(()=>{
+      alert("O Jogo Acabou - O Vencedor foi o player " + playerTime)
+    }, 10);
+  }
   // Executa a função updateSquares
   updateSquares();
 }
