@@ -2,6 +2,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Pegar todos os squares do HTML
   let squares = document.querySelectorAll(".square");
+  let reset = document.getElementById("reset");
+
+  // Pega botão reset e executa uma função ao clicar
+  reset.addEventListener('click', resetGame);
 
   // Varrer array de squares
   squares.forEach((squares) => {
@@ -12,16 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function handleClick(event) {
   // Pega o id do square
-  let position = event.target.id; 
+  let position = event.target.id;
 
   if (!position) {
     return;
-  } 
+  }
 
   // Passa a posição para o handleMove do Game.js
   if (handleMove(position)) {
     setTimeout(() => {
-      alert("O Jogo Acabou - O Vencedor foi o player " + playerTime)
+      alert("O player " + playerTime + " venceu o jogo")
     }, 10);
   }
   // Executa a função updateSquares
@@ -35,25 +39,14 @@ function updateSquare(position) {
   square.innerHTML = `<div class='${symbol}'></div>`;
 }
 
-// Não há necessidade de atualizar todos os squares
-// Função substituida pela função acima
-
 // Update de todos os squares
-/* function updateSquares() {
-  // Pega novamente todos os squares
+function updateSquares() {
+  // Pega todos os squares
   let squares = document.querySelectorAll(".square");
 
-  // Varre novamente cada um deles
+  // Varre cada um deles
   squares.forEach((square) => {
-    // Pega novamente a posição
-    let position = square.id;
-    // Pega o símbolo que está no Array board que foi atualizado
-    let symbol = board[position];
-
-    // Verifica se o símbolo não é vazio
-    // Se não for coloca X ou O
-    if (symbol != '') {
-      square.innerHTML = `<div class='${symbol}'></div>`;
-    }
+    // Limpa as divs
+    square.innerHTML = ``;
   });
-} */
+}

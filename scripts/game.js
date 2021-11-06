@@ -4,6 +4,15 @@ let playerTime = 0;
 let symbols = ['o', 'x'];
 let gameOver = false;
 
+function resetGame() {
+  board = ['', '', '', '', '', '', '', '', ''];
+  playerTime = 0;
+  gameOver = false;
+
+  updateSquares();
+  alert('O Jogo foi Reiniciado');
+}
+
 let winStates = [
   [0, 1, 2],
   [3, 4, 5],
